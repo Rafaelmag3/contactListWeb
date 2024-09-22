@@ -1,0 +1,37 @@
+<h2 class="mb-5">Mi contactos</h2>
+<div class="text-end">
+    <button class="btn btn-primary" routerLink="/new">Nuevo contacto</button>
+</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>EMAIL</th>
+            <th>FECHA CREACIÓN</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @for(contact of contacts; track contact.id){
+        <tr>
+            <td>{{contact.id}}</td>
+            <td>{{contact.name}}</td>
+            <td>{{contact.email}}</td>
+            <td>{{contact.createdAt | date: 'dd/MM/yyyy hh:mm a'}}</td>
+            <td class="text-end">
+                <div class="btn-group">
+                    <button class="btn btn-primary" (click)="editContact(contact.id)">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MCIgaGVpZ2h0PSI3MCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMjEgMTJhMSAxIDAgMCAwLTEgMXY2YTEgMSAwIDAgMS0xIDFINWExIDEgMCAwIDEtMS0xVjVhMSAxIDAgMCAxIDEtMWg2YTEgMSAwIDAgMCAwLTJINWEzIDMgMCAwIDAtMyAzdjE0YTMgMyAwIDAgMCAzIDNoMTRhMyAzIDAgMCAwIDMtM3YtNmExIDEgMCAwIDAtMS0xbS0xNSAuNzZWMTdhMSAxIDAgMCAwIDEgMWg0LjI0YTEgMSAwIDAgMCAuNzEtLjI5bDYuOTItNi45M0wyMS43MSA4YTEgMSAwIDAgMCAwLTEuNDJsLTQuMjQtNC4yOWExIDEgMCAwIDAtMS40MiAwbC0yLjgyIDIuODNsLTYuOTQgNi45M2ExIDEgMCAwIDAtLjI5LjcxbTEwLjc2LTguMzVsMi44MyAyLjgzbC0xLjQyIDEuNDJsLTIuODMtMi44M1pNOCAxMy4xN2w1LjkzLTUuOTNsMi44MyAyLjgzTDEwLjgzIDE2SDhaIi8+PC9zdmc+"
+                            alt="iconEdit">
+                    </button>
+                    <button class="btn btn-danger" (click)="deleteContact(contact)">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3MCIgaGVpZ2h0PSI3MCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTkgNGgtMy41bC0xLTFoLTVsLTEgMUg1djJoMTRNNiAxOWEyIDIgMCAwIDAgMiAyaDhhMiAyIDAgMCAwIDItMlY3SDZ6Ii8+PC9zdmc+"
+                            alt="iconDelete">
+                    </button>
+                </div>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

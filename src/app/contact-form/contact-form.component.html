@@ -1,0 +1,27 @@
+<h2 class="mb-5">
+    @if(contact){
+    Editar contacto
+    }@else {
+    Nuevo contacto
+    }
+</h2>
+<div class="row row-cols-3 justify-content-center">
+    @if(form){
+    <form [formGroup]="form" (ngSubmit)="action()">
+        <div class="mb-3">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" placeholder="Nombre" required class="form-control"
+                formControlName="name">
+        </div>
+        <div class="mb-3">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Email" required class="form-control"
+                formControlName="email">
+        </div>
+        <div class="text-end">
+            <button type="button" class="btn btn-light" routerLink="/">Cancelar</button>
+            <button class="btn btn-primary">{{contact ? 'Editar contacto' : 'Nuevo contacto'}}</button>
+        </div>
+    </form>
+    }
+</div>
